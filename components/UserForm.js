@@ -38,12 +38,11 @@ export default function UserForm({ onSubmit, disabled, initialData }) {
     const file = e.target.files[0];
     if (!file) return;
 
-    // Validate file type and size
     if (!file.type.match('image.*')) {
       alert('Please select an image file');
       return;
     }
-    if (file.size > 5 * 1024 * 1024) { // 5MB limit
+    if (file.size > 5 * 1024 * 1024) {
       alert('File size should be less than 5MB');
       return;
     }
@@ -58,14 +57,14 @@ export default function UserForm({ onSubmit, disabled, initialData }) {
         type: file.type,
         size: file.size,
         lastModified: file.lastModified,
-        url: fakeFileUrl // This would be a server URL in real implementation
+        url: fakeFileUrl
       }
     }));
   }, []);
 
   const handleRemovePhoto = useCallback(() => {
     if (previewUrl) {
-      URL.revokeObjectURL(previewUrl); // Clean up memory
+      URL.revokeObjectURL(previewUrl);
     }
     setPreviewUrl(null);
     setFormData(prev => ({
@@ -77,10 +76,10 @@ export default function UserForm({ onSubmit, disabled, initialData }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    // Prepare form data (mocking server upload in this example)
+    // Prepare form data (mocking server upload)
     const submissionData = {
       ...formData,
-      // For real implementation, you would send the file separately
+      // For real implementation, the file will be sent separately
       profilePhoto: formData.profilePhoto 
         ? { 
             name: formData.profilePhoto.name,
@@ -95,7 +94,6 @@ export default function UserForm({ onSubmit, disabled, initialData }) {
 
   return (
     <form onSubmit={handleSubmit}>
-      {/* Profile Photo Section */}
       <Box sx={{ mb: 3 }}>
         <Typography variant="subtitle1" gutterBottom>
           Profile Photo

@@ -62,7 +62,7 @@ export default function AddUser() {
           Add New User
         </Typography>
 
-        {/* Loading Indicator */}
+        {/* Loading */}
         {loading && (
           <Box sx={{ 
             display: 'flex', 
@@ -79,7 +79,7 @@ export default function AddUser() {
           disabled={loading}
         />
 
-        {/* Error Snackbar */}
+        {/* Error */}
         <Snackbar
           open={!!error}
           autoHideDuration={6000}
@@ -98,7 +98,7 @@ export default function AddUser() {
           </Alert>
         </Snackbar>
 
-        {/* Success Snackbar */}
+        {/* Success */}
         <Snackbar
           open={success}
           autoHideDuration={6000}

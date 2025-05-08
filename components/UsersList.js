@@ -104,7 +104,6 @@ export default function UsersList({ users: initialUsers = [], onDelete }) {
             onDelete={onDelete}
           />
           
-          {/* Enhanced Pagination Controls */}
           <Grid container spacing={2} alignItems="center" sx={{ mt: 2, pt: 2, borderTop: '1px solid rgba(0, 0, 0, 0.12)' }}>
             <Grid item xs={12} sm={4}>
               <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -169,7 +168,6 @@ export default function UsersList({ users: initialUsers = [], onDelete }) {
             </Grid>
           </Grid>
 
-          {/* Quick Page Jump (Optional) */}
           {totalPages > 5 && (
             <Box sx={{ display: 'flex', justifyContent: 'center', mt: 1, gap: 0.5 }}>
               {Array.from({ length: Math.min(5, totalPages) }, (_, i) => {

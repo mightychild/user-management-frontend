@@ -15,7 +15,7 @@ import {
 } from '@mui/material';
 
 export default function Dashboard() {
-  const [users, setUsers] = useState([]); // This is your state variable
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [snackbar, setSnackbar] = useState({ open: false, message: '' });
@@ -32,7 +32,7 @@ export default function Dashboard() {
       try {
         setLoading(true);
         const { users } = await getUsers();
-        setUsers(users); // Setting the users state
+        setUsers(users);
       } catch (err) {
         setError('Failed to load users');
         console.error(err);
@@ -48,7 +48,7 @@ export default function Dashboard() {
     if (window.confirm('Are you sure you want to delete this user?')) {
       try {
         await deleteUser(userId); // API call to backend
-        setUsers(prevUsers => prevUsers.filter(user => user._id !== userId)); // Update state
+        setUsers(prevUsers => prevUsers.filter(user => user._id !== userId));
         setSnackbar({ open: true, message: 'User deleted successfully' });
       } catch (err) {
         setSnackbar({ open: true, message: err.message || 'Failed to delete user' });
@@ -57,7 +57,10 @@ export default function Dashboard() {
   };
 
   if (loading) return (
-    <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+    <Box sx={{ display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      height: '100vh' }}>
       <CircularProgress size={60} />
     </Box>
   );
@@ -124,7 +127,6 @@ export default function Dashboard() {
           border: '1px solid',
           borderColor: 'divider'
         }}>
-          {/* Corrected: using 'users' instead of 'userList' */}
           <UsersList 
             users={users} 
             onDelete={handleDelete} 

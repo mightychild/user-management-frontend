@@ -10,9 +10,7 @@ export default function UserTable({ users, onDelete, onEdit }) {
   const router = useRouter();
 
   const handleDeleteClick = (userId) => {
-    
-      onDelete(userId); // Now safely calling the prop
-    
+    onDelete(userId);
   };
 
   const handleEditClick = (userId) => {
@@ -60,6 +58,6 @@ export default function UserTable({ users, onDelete, onEdit }) {
 
 UserTable.propTypes = {
   users: PropTypes.array,
-  onDelete: PropTypes.func.isRequired, // Mark as required
+  onDelete: PropTypes.func.isRequired,
   onEdit: PropTypes.func
 };
