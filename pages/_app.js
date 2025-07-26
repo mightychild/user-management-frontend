@@ -1,5 +1,5 @@
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import Head from 'next/head';
+import Head from 'next/head'
 
 const theme = createTheme();
 
